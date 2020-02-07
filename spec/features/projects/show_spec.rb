@@ -10,6 +10,18 @@ describe "project show page" do
       @retro_art = @looking_back.projects.create!(name: "Retro Art", material: "Records")
       @future_vision = @next_gen_designer.projects.create!(name: "Future Vision", material: "Goggles")
       @nerdy_feet = @kicks.projects.create!(name: "Nerdy Feet", material:"Crocs")
+
+      @bob = Contestant.create!(name: "Bob Jones", age: "28", hometown: "Milwaukee", years_of_experience: "8")
+      @tin = Contestant.create!(name: "Tin Lee", age: "31", hometown: "Phoenix", years_of_experience: "12")
+      @janice = Contestant.create!(name: "Janice Cherin", age: "39", hometown: "Chicago", years_of_experience: "17")
+
+      @nerdy_feet.contestants << @janice
+      @retro_art.contestants << @bob
+      @future_vision.contestants << @tin
+      @nerdy_feet.contestants << @tin
+      @retro_art.contestants << @janice
+      @future_vision.contestants << @bob
+
     end
 
     it "when I visit a project show page I see the project name,
@@ -18,6 +30,12 @@ describe "project show page" do
       expect(page).to have_content("Retro Art")
       expect(page).to have_content("Records")
       expect(page).to have_content("#{@looking_back.theme}")
+    end
+
+    it "when I visit a project show page I see the contestants on this project" do
+      visit "/projects/#{@retro_art.id}"
+      expect(page).to have_content("#{@janice.name}")
+      expect(page).to have_content("#{@bob.name}")
     end
   end
 end
