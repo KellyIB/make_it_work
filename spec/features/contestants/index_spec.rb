@@ -21,7 +21,6 @@ describe "contestant index page" do
       @nerdy_feet.contestants << @tin
       @retro_art.contestants << @janice
       @future_vision.contestants << @bob
-
     end
 
 

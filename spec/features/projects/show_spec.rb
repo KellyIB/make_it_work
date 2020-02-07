@@ -25,17 +25,13 @@ describe "project show page" do
     end
 
     it "when I visit a project show page I see the project name,
-      and material. I also see the theme of the Challenge it belongs to" do
+      and material, and number of contestants. I also see the theme of the Challenge it belongs to" do
       visit "/projects/#{@retro_art.id}"
       expect(page).to have_content("Retro Art")
       expect(page).to have_content("Records")
       expect(page).to have_content("#{@looking_back.theme}")
+      expect(page).to have_content("Number of Contestants: 2")
     end
 
-    it "when I visit a project show page I see the contestants on this project" do
-      visit "/projects/#{@retro_art.id}"
-      expect(page).to have_content("#{@janice.name}")
-      expect(page).to have_content("#{@bob.name}")
-    end
   end
 end
