@@ -13,7 +13,7 @@ describe "project show page" do
 
       @bob = Contestant.create!(name: "Bob Jones", age: "28", hometown: "Milwaukee", years_of_experience: "8")
       @tin = Contestant.create!(name: "Tin Lee", age: "31", hometown: "Phoenix", years_of_experience: "12")
-      @janice = Contestant.create!(name: "Janice Cherin", age: "39", hometown: "Chicago", years_of_experience: "17")
+      @janice = Contestant.create!(name: "Janice Cherin", age: "39", hometown: "Chicago", years_of_experience: "12.5")
 
       @nerdy_feet.contestants << @janice
       @retro_art.contestants << @bob

@@ -4,4 +4,6 @@ class ContestantsController < ApplicationController
     @contestants = Contestant.all
   end
 
+
+
 end
