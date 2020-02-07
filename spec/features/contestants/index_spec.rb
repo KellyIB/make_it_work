@@ -18,6 +18,9 @@ describe "contestant index page" do
       @nerdy_feet.contestants << @janice
       @retro_art.contestants << @bob
       @future_vision.contestants << @tin
+      @nerdy_feet.contestants << @tin
+      @retro_art.contestants << @janice
+      @future_vision.contestants << @bob
 
     end
 
@@ -29,7 +32,7 @@ describe "contestant index page" do
         expect(page).to have_content("Age: #{@bob.age}")
         expect(page).to have_content("Hometown: #{@bob.hometown}")
         expect(page).to have_content("Years of Experience: #{@bob.years_of_experience}")
-        expect(page).to have_content("Projects: Retro Art")
+        expect(page).to have_content("Project: Retro Art")
       end
 
       within "#contestant-#{@tin.id}" do
@@ -37,15 +40,15 @@ describe "contestant index page" do
         expect(page).to have_content("Age: #{@tin.age}")
         expect(page).to have_content("Hometown: #{@tin.hometown}")
         expect(page).to have_content("Years of Experience: #{@tin.years_of_experience}")
-        expect(page).to have_content("Projects: Future Vision")
+        expect(page).to have_content("Project: Future Vision")
       end
 
-      within "#contestant-#{@bob.id}" do
+      within "#contestant-#{@janice.id}" do
         expect(page).to have_content("Name: #{@janice.name}")
         expect(page).to have_content("Age: #{@janice.age}")
         expect(page).to have_content("Hometown: #{@janice.hometown}")
         expect(page).to have_content("Years of Experience: #{@janice.years_of_experience}")
-        expect(page).to have_content("Projects: Nerdy Feet")
+        expect(page).to have_content("Project: Nerdy Feet")
       end
     end
   end
