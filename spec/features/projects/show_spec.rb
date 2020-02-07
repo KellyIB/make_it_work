@@ -31,6 +31,8 @@ describe "project show page" do
       expect(page).to have_content("Records")
       expect(page).to have_content("#{@looking_back.theme}")
       expect(page).to have_content("Number of Contestants: 2")
+      expect(page).to have_content("Average Years of Contestant Experience: 2")
+
     end
 
   end
